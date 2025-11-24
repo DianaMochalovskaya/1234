@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎄 Christmas Crossword (5 Words)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #e74c3c;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px #fff;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+        }
+        .grid {
+            display: inline-block;
+            margin: 20px auto;
+            border: 2px solid #2c3e50;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #34495e;
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+            font-size: 20px;
+            background: #f9f9f9;
+            position: relative;
+        }
+        .black {
+            background: #2c3e50;
+        }
+        .number {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            font-size: 10px;
+            color: red;
+            font-weight: bold;
+        }
+        .clues {
+            margin-top: 30px;
+        }
+        .clues h2 {
+            color: #27ae60;
+            border-bottom: 2px dashed #bdc3c7;
+            padding-bottom: 5px;
+        }
+        .clue-list {
+            columns: 2;
+            column-gap: 30px;
+        }
+        .clue {
+            margin: 8px 0;
+            break-inside: avoid;
+        }
+        .dir-h { color: #2980b9; font-weight: bold; }
+        .dir-v { color: #8e44ad; font-weight: bold; }
+        .answer-key {
+            margin-top: 25px;
+            padding: 12px;
+            background: #f1f8e9;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: #2e7d32;
+        }
+        @media (max-width: 600px) {
+            .clue-list { columns: 1; }
+            .cell { width: 40px; height: 40px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎄 Christmas Crossword</h1>
+        <p class="subtitle">Solve 5 festive English words!</p>
+
+        <!-- Crossword Grid: 8×8 -->
+        <div class="grid">
+            <table>
+                <tr>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="cell"><span class="number">1</span>S</td>
+                    <td class="cell">N</td>
+                    <td class="cell">O</td>
+                    <td class="cell">W</td>
+                    <td class="cell">M</td>
+                    <td class="cell">A</td>
+                </tr>
+                <tr>
+                    <td class="black"></td>
+                    <td class="cell"><span class="number">2</span>N</td>
+                    <td class="cell">O</td>
+                    <td class="cell">E</td>
+                    <td class="cell">L</td>
+                    <td class="cell">F</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="cell"><span class="number">3</span>E</td>
+                    <td class="cell">L</td>
+                    <td class="cell">F</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="cell">V</td>
+                    <td class="cell">E</td>
+                    <td class="cell">R</td>
+                    <td class="cell"><span class="number">4</span>D</td>
+                    <td class="cell">E</td>
+                    <td class="cell">C</td>
+                    <td class="cell">O</td>
+                    <td class="cell">R</td>
+                </tr>
+                <tr>
+                    <td class="cell">E</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="cell">E</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="cell">N</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="cell">C</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="cell">I</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="cell">O</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                </tr>
+                <tr>
+                    <td class="cell"><span class="number">5</span>G</td>
+                    <td class="cell">I</td>
+                    <td class="cell">F</td>
+                    <td class="cell">T</td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                    <td class="black"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="clues">
+            <h2>Clues</h2>
+            <div class="clue-list">
+                <div>
+                    <h3>Across:</h3>
+                    <div class="clue"><span class="dir-h">1.</span> White flakes that fall in winter → <i>Snowman</i> (8)</div>
+                    <div class="clue"><span class="dir-h">3.</span> Santa’s helper, pointy ears → <i>Elf</i> (3)</div>
+                    <div class="clue"><span class="dir-h">4.</span> Things you hang on the tree → <i>Decor</i> (6, short for "decoration")</div>
+                    <div class="clue"><span class="dir-h">5.</span> What you open on Christmas morning → <i>Gift</i> (4)</div>
+                </div>
+                <div>
+                    <h3>Down:</h3>
+                    <div class="clue"><span class="dir-v">1.</span> Santa’s vehicle pulled by reindeer → <i>Sleigh</i> (6)</div>
+                    <div class="clue"><span class="dir-v">2.</span> "Ho ho ho!" man in red → <i>Noel</i> (4, poetic for Christmas)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="answer-key">
+            ✅ <strong>Words used:</strong> 
+            <code>Snowman</code>, <code>Sleigh</code>, <code>Elf</code>, <code>Noel</code>, <code>Gift</code>, <code>Decor</code>
+            <br>
+            🔍 Note: <i>"Decor"</i> is commonly used in crosswords as shorthand for "decoration".
+        </div>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #7f8c8d;">
+            Happy Holidays! 🎅✨
+        </p>
+    </div>
+</body>
+</html>
