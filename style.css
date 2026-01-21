@@ -11,7 +11,7 @@ body {
   margin-right: 20%;
   border: 2px dotted black;
   padding: 10px;
-  font-family: "Pudelinka", sans-serif;
+  font-family: sans-serif;
 }
 
 blockquote.q {
@@ -19,3 +19,4 @@ blockquote.q {
   border-left: 4px solid #8B0000;
   font-style: italic;
 }
+p.zz {font-family:"Pudelinka";}
