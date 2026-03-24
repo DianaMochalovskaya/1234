@@ -1,0 +1,48 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+def generate_insurance_data(n_samples=1000, seed=42):
+    np.random.seed(seed)
+    age = np.random.randint(18, 71, n_samples)
+    max_experience = age - 18
+    max_experience[max_experience < 0] = 0
+    experience = np.array([np.random.randint(0, mx + 1) for mx in max_experience])
+    accident_rate = 0.5 + (30 - age) / 30 + (10 - experience) / 20
+    accident_rate = np.clip(accident_rate, 0.1, 5.0) # Ограничим коэффициент
+    accidents = np.random.poisson(accident_rate, n_samples)
+    df = pd.DataFrame({
+        'Age': age,
+        'Experience': experience,
+        'Accidents': accidents
+    })
+    probability_approve = np.zeros(n_samples)
+    for i in range(n_samples):
+        score = 0.5
+        if df.loc[i, 'Age'] < 25:
+            score -= 0.3
+        elif df.loc[i, 'Age'] > 50:
+            score += 0.1
+        if df.loc[i, 'Experience'] < 3:
+            score -= 0.1
+        elif df.loc[i, 'Experience'] > 10:
+            score += 0.1
+        score -= df.loc[i, 'Accidents'] * 0.15
+        noise = np.random.normal(0, 0.1)
+        final_prob = np.clip(score + noise, 0.05, 0.95)
+        df.loc[i, 'Approved'] = 1 if np.random.random() < final_prob else 0
+    return df
+df = generate_insurance_data(1000)
+X = df[['Age', 'Experience', 'Accidents']]
+y = df['Approved']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Точность модели (Accuracy): {accuracy:.4f} ({accuracy*100:.2f}%)")
+print("\nОтчет по классификации:")
+print(classification_report(y_test, y_pred, target_names=['Отказ', 'Одобрено']))
